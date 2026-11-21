@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #06090e;
+  color: #e8edf5;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: rgba(255, 98, 35, 0.35);
+  color: #fff;
+}
+
+.font-display {
+  font-family: "Chakra Petch", "Arial Narrow", ui-sans-serif, system-ui, sans-serif;
+}
+
+.app-backdrop {
+  background:
+    radial-gradient(circle at 12% 4%, rgba(255, 89, 30, 0.14), transparent 30%),
+    radial-gradient(circle at 88% 95%, rgba(198, 30, 53, 0.13), transparent 34%),
+    radial-gradient(circle at 50% 50%, rgba(30, 49, 67, 0.22), transparent 55%),
+    #06090e;
+}
+
+.app-backdrop::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.17;
+  background-image:
+    linear-gradient(rgba(131, 156, 178, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(131, 156, 178, 0.12) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle at 50% 20%, #000, transparent 78%);
+}
+
+.window-shell {
+  background: linear-gradient(145deg, rgba(17, 23, 32, 0.98), rgba(8, 12, 18, 0.99) 55%, rgba(14, 17, 23, 0.99));
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.035),
+    0 36px 100px rgba(0, 0, 0, 0.7),
+    0 0 80px rgba(255, 77, 25, 0.08);
+}
+
+.panel {
+  background: linear-gradient(145deg, rgba(24, 31, 41, 0.88), rgba(11, 16, 23, 0.9));
+  border: 1px solid rgba(148, 168, 190, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035), 0 18px 40px rgba(0, 0, 0, 0.22);
+}
+
+.panel-hover {
+  transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+
+.panel-hover:hover {
+  border-color: rgba(255, 116, 48, 0.42);
+  box-shadow: 0 0 0 1px rgba(255, 116, 48, 0.08), 0 18px 45px rgba(255, 75, 24, 0.11);
+  transform: translateY(-2px);
+}
+
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.15;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 3px,
+    rgba(0, 0, 0, 0.4) 4px,
+    transparent 5px
+  );
+  mix-blend-mode: multiply;
+}
+
+.hero-sweep::before {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -30%;
+  width: 24%;
+  height: 220%;
+  pointer-events: none;
+  transform: rotate(18deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 186, 120, 0.12), transparent);
+  animation: sweep 7s ease-in-out infinite;
+}
+
+@keyframes sweep {
+  0%, 45% { left: -30%; opacity: 0; }
+  55% { opacity: 1; }
+  85%, 100% { left: 125%; opacity: 0; }
+}
+
+.play-glow {
+  box-shadow: 0 0 0 1px rgba(255, 190, 120, 0.35) inset, 0 8px 24px rgba(255, 75, 20, 0.35), 0 0 36px rgba(255, 78, 22, 0.4);
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.play-glow:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 0 0 1px rgba(255, 210, 150, 0.55) inset, 0 10px 30px rgba(255, 75, 20, 0.5), 0 0 55px rgba(255, 78, 22, 0.65);
+}
+
+.play-glow:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.live-dot {
+  position: relative;
+}
+
+.live-dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  border: 1px solid currentColor;
+  opacity: 0.5;
+  animation: pulse-ring 1.8s ease-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.7); opacity: 0.75; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.text-glow {
+  text-shadow: 0 0 24px rgba(255, 102, 35, 0.45);
+}
+
+.orange-outline {
+  box-shadow: inset 0 0 0 1px rgba(255, 112, 48, 0.18), 0 0 28px rgba(255, 83, 28, 0.1);
+}
+
+.custom-scroll {
+  scrollbar-color: rgba(255, 105, 43, 0.45) rgba(255, 255, 255, 0.035);
+  scrollbar-width: thin;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: linear-gradient(#ff8a3d, #c72d2d);
+  background-clip: content-box;
+}
+
+.modal-backdrop {
+  background: rgba(2, 5, 9, 0.78);
+  backdrop-filter: blur(10px);
+  animation: fade-in 180ms ease-out;
+}
+
+.modal-card {
+  animation: modal-in 220ms cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.toast-in {
+  animation: toast-in 220ms ease-out;
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+.owner-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+}
+
+.owner-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 17px;
+  height: 17px;
+  border: 3px solid #ff6b2c;
+  border-radius: 50%;
+  background: #fff6ea;
+  box-shadow: 0 0 12px rgba(255, 98, 35, 0.7);
+  transition: transform 160ms ease;
+}
+
+.owner-range::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 3px solid #ff6b2c;
+  border-radius: 50%;
+  background: #fff6ea;
+  box-shadow: 0 0 12px rgba(255, 98, 35, 0.7);
+  transition: transform 160ms ease;
+}
+
+.owner-range:hover::-webkit-slider-thumb,
+.owner-range:active::-webkit-slider-thumb {
+  transform: scale(1.15);
+}
+
+.owner-range:focus-visible {
+  box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
